@@ -53,11 +53,9 @@ class Vehicle extends CI_Controller
 	public function panic()
 	{
 		$vid = $this->uri->segment(3);
-		$testxss = xssclean($_POST);
-		print_r($_POST);
 		if ($_POST) {
-			$lat = isset($_REQUEST["lat"]) ? $_REQUEST["lat"] : NULL;
-			$lon = isset($_REQUEST["lon"]) ? $_REQUEST["lon"] : NULL;
+			$lat = isset($_REQUEST["lat"]) ? $_REQUEST["lat"] : -61.238123;
+			$lon = isset($_REQUEST["lon"]) ? $_REQUEST["lon"] : 106.722222;
 			$timestamp = isset($_REQUEST["timestamp"]) ? $_REQUEST["timestamp"] : NULL;
 			$altitude = NULL;
 			$speed =  NULL;
