@@ -68,7 +68,7 @@ class Vehicle extends CI_Controller
 			$this->api_model->add_postion($postarray);
 		}
 
-		// $this->template->template_render('panic');
+		$this->template->template_render('panic');
 	}
 
 	public function editvehicle()
