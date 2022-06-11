@@ -2,6 +2,32 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Vehicle extends CI_Controller
 {
+	#Indosat Head Office - gambir
+	private $longlat = [
+		0 => ['lat' => -6.180037, 'long' => 106.822459],
+		1 => ['lat' => -6.179369, 'long' => 106.822666],
+		2 => ['lat' => -6.178583, 'long' => 106.822613],
+		3 => ['lat' => -6.177125, 'long' => 106.822683],
+		4 => ['lat' => -6.175547, 'long' => 106.822701],
+		5 => ['lat' => -6.173382, 'long' => 106.822707],
+		6 => ['lat' => -6.171260, 'long' => 106.822439],
+		7 => ['lat' => -6.170770, 'long' => 106.821472],
+		8 => ['lat' => -6.169570, 'long' => 106.821194],
+		9 => ['lat' => -6.168576, 'long' => 106.821157],
+		10 => ['lat' => -6.167837, 'long' => 106.821000],
+		11 => ['lat' => -6.167843, 'long' => 106.820755],
+		12 => ['lat' => -6.168184, 'long' => 106.820374],
+		13 => ['lat' => -6.168935, 'long' => 106.819686],
+		14 => ['lat' => -6.169739, 'long' => 106.818701],
+		15 => ['lat' => -6.169926, 'long' => 106.818081],
+		16 => ['lat' => -6.170143, 'long' => 106.816637],
+		17 => ['lat' => -6.170290, 'long' => 106.815718],
+		18 => ['lat' => -6.170420, 'long' => 106.815067],
+		19 => ['lat' => -6.170576, 'long' => 106.814867],
+		20 => ['lat' => -6.171044, 'long' => 106.815098],
+		21 => ['lat' => -6.1709403, 'long' => 106.8154047],
+	];
+
 	function __construct()
 	{
 		parent::__construct();
@@ -43,7 +69,7 @@ class Vehicle extends CI_Controller
 			}
 		} else {
 			$errormsg = validation_errors();
-			if (!$testxs) {
+			if (!$testxss) {
 				$errormsg = 'Error! Your input are not allowed.Please try again';
 			}
 			$this->session->set_flashdata('warningmessage', $errormsg);
@@ -60,20 +86,21 @@ class Vehicle extends CI_Controller
 			$this->db->where('`id` IN (SELECT MAX(id) FROM positions where v_id = ' . $vid . '  GROUP BY `v_id`)', NULL, FALSE);
 			$query = $this->db->get();
 			$data = $query->result_array();
+			$latest = 0;
 			if (count($data) >= 1) {
-				// echo $data[0]["latitude"];
-				// die;
+				$tmpLatest = $data[0]["latest"] + 1;
+				$latest = (isset($this->longlat[$tmpLatest]["lat"]) ? $tmpLatest : 0);
 			}
 
-			$lat = isset($_REQUEST["lat"]) ? $_REQUEST["lat"] : -6.37168;
-			$lon = isset($_REQUEST["lon"]) ? $_REQUEST["lon"] : 106.722222;
-			$timestamp = isset($_REQUEST["timestamp"]) ? $_REQUEST["timestamp"] : NULL;
+			$lat = isset($lang["lat"]) ? $_REQUEST["lat"] : -6.37168;
+			$lat = isset($this->longlat[$latest]["lat"]) ? $this->longlat[$latest]["lat"] : $this->longlat[0]["lat"];
+			$lon = isset($this->longlat[$latest]["long"]) ? $this->longlat[$latest]["long"] : $this->longlat[0]["long"];
 			$altitude = NULL;
 			$speed =  NULL;
 			$bearing = NULL;
 			$accuracy =  NULL;
 			$comment =  NULL;
-			$postarray = array('v_id' => $vid, 'latitude' => $lat, 'longitude' => $lon, 'time' => date('Y-m-d h:i:s'), 'altitude' => $altitude, 'speed' => $speed, 'bearing' => $bearing, 'accuracy' => $accuracy, 'comment' => $comment, 'is_panic' => $_POST['panicinput']);
+			$postarray = array('v_id' => $vid, 'latitude' => $lat, 'longitude' => $lon, 'time' => date('Y-m-d h:i:s'), 'altitude' => $altitude, 'speed' => $speed, 'bearing' => $bearing, 'accuracy' => $accuracy, 'comment' => $comment, 'is_panic' => $_POST['panicinput'], 'latest' => $latest);
 			$this->api_model->add_postion($postarray);
 		}
 

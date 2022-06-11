@@ -9,13 +9,13 @@ window.onload = function () {
   }
   map = new google.maps.Map(document.getElementById("map_canvas"), {
     center: new google.maps.LatLng(-6.2, 106.816666),
-    zoom: 9,
+    zoom: 11,
     mapTypeId: "roadmap",
     gestureHandling: "greedy",
   });
   infoWindow = new google.maps.InfoWindow();
   livetracking();
-  window.setInterval(livetracking, 15000);
+  window.setInterval(livetracking, 1500);
 };
 
 function livetracking() {
