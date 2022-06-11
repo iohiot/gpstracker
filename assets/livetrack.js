@@ -9,7 +9,7 @@ window.onload = function () {
   }
   map = new google.maps.Map(document.getElementById("map_canvas"), {
     center: new google.maps.LatLng(-6.2, 106.816666),
-    zoom: 5,
+    zoom: 9,
     mapTypeId: "roadmap",
     gestureHandling: "greedy",
   });
@@ -58,7 +58,7 @@ function livetracking() {
             var v_type = fontawesome.markers.TRUCK;
           }
 
-          baseUrl = "http://localhost/vms/assets/marker/";
+          baseUrl = "../assets/marker/";
           v_type = baseUrl + "marker-gold.png";
           if (markers[i].is_panic == 1) {
             v_type = baseUrl + "loading.gif";
@@ -72,12 +72,16 @@ function livetracking() {
             "Name: </b>" +
             markers[i].v_name +
             "<br>" +
-            "<b>Speed: </b>" +
-            Math.round(markers[i].speed) +
-            " Km/h<br>" +
             "<b>Updated On: </b>" +
             lastupdate +
-            "<br></div>";
+            "<br>" +
+            "<br>" +
+            "<a href='https://www.google.com/maps/search/?api=1&query=" +
+            parseFloat(markers[i].latitude) +
+            "," +
+            parseFloat(markers[i].longitude) +
+            "'>Direction >>>> </a>";
+          ("<br></div>");
           var marker = new google.maps.Marker({
             map: map,
             position: point,

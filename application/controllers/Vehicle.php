@@ -54,7 +54,18 @@ class Vehicle extends CI_Controller
 	{
 		$vid = $this->uri->segment(3);
 		if ($_POST) {
-			$lat = isset($_REQUEST["lat"]) ? $_REQUEST["lat"] : -61.238123;
+			$this->db->select("p.*");
+			$this->db->from('positions p');
+			$this->db->where('p.v_id', $vid);
+			$this->db->where('`id` IN (SELECT MAX(id) FROM positions where v_id = ' . $vid . '  GROUP BY `v_id`)', NULL, FALSE);
+			$query = $this->db->get();
+			$data = $query->result_array();
+			if (count($data) >= 1) {
+				// echo $data[0]["latitude"];
+				// die;
+			}
+
+			$lat = isset($_REQUEST["lat"]) ? $_REQUEST["lat"] : -6.37168;
 			$lon = isset($_REQUEST["lon"]) ? $_REQUEST["lon"] : 106.722222;
 			$timestamp = isset($_REQUEST["timestamp"]) ? $_REQUEST["timestamp"] : NULL;
 			$altitude = NULL;
