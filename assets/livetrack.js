@@ -15,7 +15,7 @@ window.onload = function () {
   });
   infoWindow = new google.maps.InfoWindow();
   livetracking();
-  window.setInterval(livetracking, 1500);
+  window.setInterval(livetracking, 3000);
 };
 
 function livetracking() {
