@@ -2,14 +2,14 @@
    <div class="container-fluid">
       <div class="row mb-2">
          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Booking Report
+            <h1 class="m-0 text-dark">Employee Detail Report
             </h1>
          </div>
          <!-- /.col -->
          <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                <li class="breadcrumb-item"><a href="<?= base_url(); ?>reports">Report</a></li>
-               <li class="breadcrumb-item active">Booking Report</li>
+               <li class="breadcrumb-item active">Employee Detail Report</li>
             </ol>
          </div>
          <!-- /.col -->
@@ -42,10 +42,10 @@
                </div>
                <div class="col-md-4">
                   <div class="form-group row">
-                     <label for="booking_to" class="col-sm-3 col-form-label">Vehicle</label>
+                     <label for="booking_to" class="col-sm-3 col-form-label">Employee</label>
                      <div class="col-sm-8 form-group">
                         <select required="true" id="booking_vechicle"  class="form-control selectized"  name="booking_vechicle">
-                           <option value="all">All Vechicle</option>
+                           <option value="all">All Employee</option>
                            <?php foreach ($vehiclelist as $key => $vechiclelists) { ?>
                            <option <?php echo (isset($_POST['booking_vechicle']) && ($_POST['booking_vechicle'] == $vechiclelists['v_id'])) ? 'selected':'' ?> value="<?php echo output($vechiclelists['v_id']) ?>"><?php echo output($vechiclelists['v_name']).' - '. output($vechiclelists['v_registration_no']); ?></option>
                            <?php  } ?>

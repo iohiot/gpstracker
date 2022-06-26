@@ -42,27 +42,30 @@ function livetracking() {
         for (i = 0; i < markers.length; i++) {
           var lastupdate = markers[i].time;
 
-          if (markers[i].v_type == "MOTORCYCLE") {
-            var v_type = fontawesome.markers.MOTORCYCLE;
-          } else if (markers[i].v_type == "BICYCLE") {
-            var v_type = fontawesome.markers.BICYCLE;
-          } else if (markers[i].v_type == "CAR") {
-            var v_type = fontawesome.markers.CAR;
-          } else if (markers[i].v_type == "TRUCK") {
-            var v_type = fontawesome.markers.TRUCK;
-          } else if (markers[i].v_type == "BUS") {
-            var v_type = fontawesome.markers.BUS;
-          } else if (markers[i].v_type == "TAXI") {
-            var v_type = fontawesome.markers.TAXI;
-          } else {
-            var v_type = fontawesome.markers.TRUCK;
+          baseUrl = "http://localhost/gpstracker/assets/marker/";
+          v_type = {
+                    path: fontawesome.markers.USER,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 2,
+                    fillColor: markers[i].v_color,
+                    fillOpacity: 1.5
+                  };
+          if (markers[i].is_panic == 1)
+          {
+            v_type = {
+                      url: baseUrl + "warning.gif",
+                      scaledSize: new google.maps.Size(30, 30)
+                    };
+          } else if (markers[i].is_panic == 2)
+          {
+            v_type = {
+                      url: baseUrl + "mandown.gif",
+                      scaledSize: new google.maps.Size(30, 30)
+                    };
           }
 
-          baseUrl = "../assets/marker/";
-          v_type = baseUrl + "marker-gold.png";
-          if (markers[i].is_panic == 1) {
-            v_type = baseUrl + "loading.gif";
-          }
           var point = new google.maps.LatLng(
             parseFloat(markers[i].latitude),
             parseFloat(markers[i].longitude)
@@ -85,18 +88,8 @@ function livetracking() {
           var marker = new google.maps.Marker({
             map: map,
             position: point,
-            icon: v_type,
-            // icon: {
-            //   url: v_type,
-            //   size: new google.maps.Size(30, 30),
-            //   scaledSize: new google.maps.Size(30, 30),
-            // anchor: new google.maps.Point(0, 0),
-            // strokeWeight: 0.2,
-            // strokeColor: "black",
-            // strokeOpacity: 2,
-            // fillColor: markers[i].v_color,
-            // fillOpacity: 1.5,
-            // },
+           // icon: v_type,
+           icon: v_type,
             //BICYCLE,CAR,MOTORCYCLE,TRUCK
             //shadow : icon
           });

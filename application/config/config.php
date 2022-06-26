@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = "http://localhost/vms/";
+$config['base_url'] = "http://localhost/gpstracker/";
 
 /*
 |--------------------------------------------------------------------------
@@ -522,7 +522,6 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-// $config['google_api_key'] = 'AIzaSyCP7Ie5eZVyzyOPEhGd2UWAr9DZaXg25xs';
 $config['google_api_key'] = 'AIzaSyCiGXRYrWrIEfLLQeHeFgWXEeXKIgucdDk';
 
-$config['company_name'] = 'Vehicle Management + Live GPS Tracking';
+$config['company_name'] = 'Live GPS Tracking';

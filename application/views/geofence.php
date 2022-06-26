@@ -26,7 +26,7 @@
                           <th class="w-1">S.No</th>
                           <th>Name</th>
                           <th>Description</th>
-                         <th>Vehicle</th>
+                         <th>Employee</th>
                           <th>View</th>
                           <?php if(userpermission('lr_geofence_delete')) { ?>
                         <th>Delete</th>

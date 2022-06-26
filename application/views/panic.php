@@ -30,6 +30,10 @@
                         <button type="button" id="btn-panic" class="btn btn-block btn-danger">Panic</button>
                     </div>
                     <div class="col-sm-3">&nbsp;</div>
+                    <div class="col-sm-3">&nbsp;</div>
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-block btn-primary" id="btn-man">Man Down</button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -45,6 +49,11 @@
 
     $("#btn-panic").on("click", function(event) {
         $("#panicinput").val(1)
+        $("#form-panic").submit()
+    });
+
+    $("#btn-man").on("click", function(event) {
+        $("#panicinput").val(2)
         $("#form-panic").submit()
     });
 </script>

@@ -81,9 +81,9 @@ class Api extends REST_Controller {
         $this->db->join('vehicles v', 'v.v_id = p.v_id');
         $this->db->where('v.v_is_active', 1);
         
-        if(isset($_GET['uname'])) { $this->db->where('v.v_api_username',$_GET['uname']);  }
+        // if(isset($_GET['uname'])) { $this->db->where('v.v_api_username',$_GET['uname']);  }
 
-        if(isset($_GET['gr'])) { $this->db->where('v.v_group',$_GET['gr']);  }
+        // if(isset($_GET['gr'])) { $this->db->where('v.v_group',$_GET['gr']);  }
 
         if(isset($_GET['v_id'])) { $this->db->where('v.v_id',$_GET['v_id']);  }
 

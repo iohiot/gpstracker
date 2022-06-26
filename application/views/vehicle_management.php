@@ -2,13 +2,13 @@
    <div class="container-fluid">
       <div class="row mb-2">
          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Vehicle's Management
+            <h1 class="m-0 text-dark">Employee's Management
             </h1>
          </div>
          <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                <li class="breadcrumb-item"><a href="<?= base_url(); ?>/dashboard">Dashboard</a></li>
-               <li class="breadcrumb-item active">Vehicle's Management</li>
+               <li class="breadcrumb-item active">Employee's Management</li>
             </ol>
          </div>
       </div>
@@ -22,11 +22,10 @@
                <table id="vehiclelisttbl" class="table card-table table-vcenter text-nowrap">
                   <thead>
                      <tr>
-                        <th class="w-1">S.No</th>
-                        <th>Vehicle Name</th>
-                        <th>Registration Number</th>
-                        <th>Model</th>
-                        <th>Chassis No</th>
+                        <th class="w-1">No</th>
+                        <th>Employee Name</th>
+                        <th>Employee ID</th>
+                        <th>Device ID</th>
                         <th>Group</th>
                         <th>Is Active</th>
                         <?php if (userpermission('lr_vech_list_view') || userpermission('lr_vech_list_edit')) { ?>
@@ -43,8 +42,7 @@
                                     $count++; ?></td>
                               <td><?php echo output($vehiclelists['v_name']); ?></td>
                               <td><?php echo output($vehiclelists['v_registration_no']); ?></td>
-                              <td><?php echo output($vehiclelists['v_model']); ?></td>
-                              <td><?php echo output($vehiclelists['v_chassis_no']); ?></td>
+                              <td><?php echo output($vehiclelists['t_driver']); ?></td>
                               <td><?php echo output($vehiclelists['gr_name']); ?></td>
                               <td><span class="badge <?php echo ($vehiclelists['v_is_active'] == '1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($vehiclelists['v_is_active'] == '1') ? 'Active' : 'Inactive'; ?></span>
                               </td>

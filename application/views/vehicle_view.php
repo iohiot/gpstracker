@@ -4,13 +4,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Vehicle Details
+            <h1 class="m-0 text-dark">Employee Details
             </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= base_url(); ?>/dashboard">Home</a></li>
-              <li class="breadcrumb-item active">Vehicle Details</li>
+              <li class="breadcrumb-item"><a href="<?= base_url(); ?>/dashboard">Employee's</a></li>
+              <li class="breadcrumb-item active">Employee Details</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,15 +37,15 @@
                 <p class="text-muted text-center"><?= ($vehicledetails['v_is_active']==1)?'<span class="right badge badge-success">Active</span>':'<span class="right badge badge-danger">Inactive</span>' ?></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Bookings</b> <a class="float-right"><?= count($bookings); ?></a>
-                  </li>
+                  <!--<li class="list-group-item">
+                    <b>Bookings</b> <a class="float-right"><?= count($bookings); ?></a> 
+                  </li>-->
                   <li class="list-group-item">
                     <b>Geofence</b> <a class="float-right"><?= count($vechicle_geofence); ?></a>
                   </li>
-                  <li class="list-group-item">
+                  <!--<li class="list-group-item">
                     <b>Notifications</b> <a class="float-right"><?= count($geofence_events); ?></a>
-                  </li>
+                  </li>-->
                 </ul>
 
               </div>
@@ -61,9 +61,9 @@
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                    <li class="nav-item"><a class="nav-link active" href="#basicinfo" data-toggle="tab">Basic Info</a></li>
-                  <li class="nav-item"><a class="nav-link " href="#bookings" data-toggle="tab">Bookings</a></li>
+                 <!--<li class="nav-item"><a class="nav-link " href="#bookings" data-toggle="tab">Bookings</a></li> -->
                   <li class="nav-item"><a class="nav-link" href="#vechicle_geofence" data-toggle="tab">Geofence</a></li>
-                <li class="nav-item"><a class="nav-link" href="#vechicle_incomexpense" data-toggle="tab">Income & Expense</a></li>
+                <!--<li class="nav-item"><a class="nav-link" href="#vechicle_incomexpense" data-toggle="tab">Income & Expense</a></li>-->
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -256,14 +256,14 @@
                     <table class="table table-sm table-bordered">
                   <tbody>
                     <tr>
-                      <td>Registration No</td>
+                      <td>Employee ID</td>
                       <td><?= output($vehicledetails['v_registration_no']) ?></td>
                     </tr>
                     <tr>
                       <td>Name</td>
                       <td><?= output($vehicledetails['v_name']) ?></td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                       <td>Model</td>
                       <td><?= output($vehicledetails['v_model']) ?></td>
                     </tr>
@@ -298,7 +298,7 @@
                      <tr>
                       <td>GPS API Password</td>
                       <td><?= output($vehicledetails['v_api_password']) ?></td>
-                    </tr>
+                    </tr>-->
                      <tr>
                       <td>Created Date</td>
                       <td><?= output($vehicledetails['v_created_date']) ?></td>

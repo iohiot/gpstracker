@@ -78,10 +78,10 @@
                     </div>
                   </div>
                    <div class="form-group row">
-                    <label for="Cateogry" class="col-sm-4 col-form-label">Vehicle</label>
+                    <label for="Cateogry" class="col-sm-4 col-form-label">Employee</label>
                     <div class="form-group col-sm-8">
                       <div class="form-group" >
-                        <select class="select2 select2-hidden-accessible" id="geo_vehicles" required="true" name="geo_vehicles[]" multiple="" data-placeholder="Select vehicles" style="width: 100%;"  tabindex="-1" aria-hidden="true">
+                        <select class="select2 select2-hidden-accessible" id="geo_vehicles" required="true" name="geo_vehicles[]" multiple="" data-placeholder="Select Employees" style="width: 100%;"  tabindex="-1" aria-hidden="true">
                           <?php if(!empty($vehicles)) { foreach($vehicles as $vehicle) { ?>
                           <option value="<?= $vehicle['v_id']; ?>"><?= $vehicle['v_name']; ?></option>
                          <?php }} ?>

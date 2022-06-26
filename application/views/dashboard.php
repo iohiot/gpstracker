@@ -1,3 +1,11 @@
+<?php
+if($this->uri->segment(3)) {
+	$data = $this->uri->segment(3);
+} else {
+	$data = 0;
+}
+?>
+
 <div class="content-header">
    <div class="container-fluid">
       <div class="row mb-2">
@@ -25,9 +33,9 @@
       <div class="row">
          <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-               <span class="info-box-icon theme-bg-default elevation-1"><i class="fas fa-truck text-white"></i></span>
+               <span class="info-box-icon theme-bg-default elevation-1"><i class="fas fa-users text-white"></i></span>
                <div class="info-box-content">
-                  <span class="info-box-text">Total Vehicle's</span>
+                  <span class="info-box-text">Total Employee's</span>
                   <span class="info-box-number"><?= ($dashboard['tot_vehicles']!='') ? $dashboard['tot_vehicles']:'0' ?>  </span>
                </div>
                <!-- /.info-box-content -->
@@ -80,11 +88,11 @@
          <!-- Left col -->
          <div class="row col-md-12">
             <?php if(userpermission('lr_ie_list')) { ?>
-            <div class="col-md-6">
+            <div class="col-md-12">
                <!-- TABLE: LATEST ORDERS -->
                <div class="card">
                   <div class="card-header">
-                     <h2 class="card-title">Income and Expenses</h2>
+                     <h2 class="card-title">Live Tracking</h2>
                   </div>
                   <div class="card-header border-transparent">
                      <div class="card-body">
@@ -98,15 +106,10 @@
                         </div>
                         <!-- /.d-flex -->
                         <div class="position-relative mb-4">
-                           <div class="chartjs-size-monitor">
-                              <div class="chartjs-size-monitor-expand">
-                                 <div class=""></div>
-                              </div>
-                              <div class="chartjs-size-monitor-shrink">
-                                 <div class=""></div>
-                              </div>
-                           </div>
-                           <canvas id="ie-chart" height="200" width="487" class="chartjs-render-monitor" style="display: block; width: 487px; height: 200px;"></canvas>
+                        <script id="group" data-name="<?= $data  ?>" src="<?php echo base_url(); ?>assets/livetrack.js"></script>
+                        <script src="<?php echo base_url(); ?>assets/fontawesome-markers.min.js"></script>
+
+                        <div class="col-lg-12 col-md-12" id="map_canvas" style="width: 100%; height: 650px"></div>
                         </div>
                         <div class="d-flex flex-row justify-content-end">
                            <span class="mr-2">
@@ -157,7 +160,7 @@
          <div class="col-sm-6 col-lg-6 ">
             <div class="card ">
                <div class="card-header">
-                  <h2 class="card-title">Vechicle Current Location</h2>
+                  <h2 class="card-title">Employee Current Location</h2>
                </div>
                <table  class="datatable table card-table table-vcenter">
                   <thead>
@@ -183,7 +186,7 @@
          <div class="col-sm-6 col-lg-6 ">
             <div class="card">
                <div class="card-header">
-                  <h2 class="card-title">Vechicle Running Status</h2>
+                  <h2 class="card-title">Employee Running Status</h2>
                </div>
                <table class="datatable table card-table">
                   <thead>
@@ -210,7 +213,7 @@
             <div class="col-sm-12 col-lg-12 ">
                <div class="card">
                   <div class="card-header">
-                     <h2 class="card-title">Vehicle Geofence Status</h2>
+                     <h2 class="card-title">Employee Geofence Status</h2>
                   </div>
                   <table class="datatable table card-table table-vcenter">
                      <thead>
@@ -250,76 +253,4 @@
 
 <!-- /.content-wrapper -->
 <?php if(userpermission('lr_ie_list')) { ?>
-  <script>
-  var ticksStyle = {
-    fontColor: '#495057',
-    fontStyle: 'bold'
-  }
-  var mode      = 'index';
-    var intersect = true;
-  var $visitorsChart = $('#ie-chart')
-  var visitorsChart  = new Chart($visitorsChart, {
-    data   : {
-      labels  : <?= "['" . implode ( "', '", array_keys($iechart)) . "']" ?>,
-      datasets: [{
-        type                : 'line',
-        data                : <?= "['" . implode ( "', '", array_column($iechart, 'income')). "']" ?>,
-        backgroundColor     : 'transparent',
-        borderColor         : '#28a745',
-        pointBorderColor    : '#28a745',
-        pointBackgroundColor: '#28a745',
-        fill                : false
-        // pointHoverBackgroundColor: '#007bff',
-        // pointHoverBorderColor    : '#007bff'
-      },
-        {
-          type                : 'line',
-          data                : <?= "['" . implode ( "', '", array_column($iechart, 'expense')) . "']" ?>,
-          backgroundColor     : 'tansparent',
-          borderColor         : '#dc3545',
-          pointBorderColor    : '#dc3545',
-          pointBackgroundColor: '#dc3545',
-          fill                : false
-          // pointHoverBackgroundColor: '#ced4da',
-          // pointHoverBorderColor    : '#ced4da'
-        }]
-    },
-    options: {
-      maintainAspectRatio: false,
-      tooltips           : {
-        mode     : mode,
-        intersect: intersect
-      },
-      hover              : {
-        mode     : mode,
-        intersect: intersect
-      },
-      legend             : {
-        display: false
-      },
-      scales             : {
-        yAxes: [{
-          // display: false,
-          gridLines: {
-            display      : true,
-            lineWidth    : '4px',
-            color        : 'rgba(0, 0, 0, .2)',
-            zeroLineColor: 'transparent'
-          },
-          ticks    : $.extend({
-            beginAtZero : true,
-            suggestedMax: 200
-          }, ticksStyle)
-        }],
-        xAxes: [{
-          display  : true,
-          gridLines: {
-            display: false
-          },
-          ticks    : ticksStyle
-        }]
-      }
-    }
-  })
-
-</script> <?php } ?>
+  <?php } ?>

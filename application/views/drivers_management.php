@@ -2,14 +2,14 @@
    <div class="container-fluid">
       <div class="row mb-2">
          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Driver Info
+            <h1 class="m-0 text-dark">Device Info
             </h1>
          </div>
          <!-- /.col -->
          <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-               <li class="breadcrumb-item"><a href="<?= base_url(); ?>/dashboard">Dashboard</a></li>
-               <li class="breadcrumb-item active">Driver Info</li>
+               <li class="breadcrumb-item"><a href="<?= base_url(); ?>/dashboard">Device</a></li>
+               <li class="breadcrumb-item active">Device Info</li>
             </ol>
          </div>
          <!-- /.col -->
@@ -28,11 +28,11 @@
                   <thead>
                      <tr>
                         <th class="w-1">S.No</th>
-                        <th>Name</th>
-                        <th>Mobile</th>
-                        <th>License No</th>
-                        <th>License Exp Date</th>
-                        <th>Date of Joining</th>
+                        <th>IMEI GPS</th>
+                        <th>Brand</th>
+                        <th>Manufacture</th>
+                        <!--<th>License Exp Date</th>
+                        <th>Date of Joining</th>-->
                         <th>Is Active</th>
                         <?php if(userpermission('lr_drivers_list_edit')) { ?>
                         <th>Action</th>
@@ -47,9 +47,9 @@
                         <td> <?php echo output($count); $count++; ?></td>
                         <td> <?php echo output($driverslists['d_name']); ?></td>
                         <td> <?php echo output($driverslists['d_mobile']); ?></td>
-                        <td><?php echo output($driverslists['d_licenseno']); ?></td>
-                        <td><?php echo output($driverslists['d_license_expdate']); ?></td>
-                        <td><?php echo output($driverslists['d_doj']); ?></td>
+                        <td><?php echo output($driverslists['d_age']); ?></td>
+                       <!-- <td><?php echo output($driverslists['d_license_expdate']); ?></td>
+                        <td><?php echo output($driverslists['d_doj']); ?></td> -->
                         <td>  <span class="badge <?php echo ($driverslists['d_is_active']=='1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($driverslists['d_is_active']=='1') ? 'Active' : 'Inactive'; ?></span>  </td>
                         <?php if(userpermission('lr_drivers_list_edit')) { ?>
                         <td>

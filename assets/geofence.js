@@ -127,7 +127,7 @@
       function initialize() {
         map = new google.maps.Map(document.getElementById('map'), { //var
           zoom: 12,//10,
-          center: new google.maps.LatLng(24.8998373,91.8258764),//(22.344, 114.048),
+          center: new google.maps.LatLng(-6.2, 106.816666),//(22.344, 114.048),
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           disableDefaultUI: false,
           gestureHandling: 'greedy'

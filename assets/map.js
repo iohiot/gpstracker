@@ -5,7 +5,7 @@
 
          var hisinfowindow = null; 
          var hismap = null;
-         var hiszoomlevel = 15;
+         var hiszoomlevel = 12;
          var hismarkersArray = [];
      
          function clearOverlays() {

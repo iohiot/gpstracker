@@ -24,8 +24,8 @@
                 <thead>
                   <tr>
                     <th class="w-1">S.No</th>
-                    <th>Vehicle ID</th>
-                    <th>Vehicle Name</th>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
                     <th>Geo Name</th>
                     <th>Geo Event</th>
                     <th>Time</th>

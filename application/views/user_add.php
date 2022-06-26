@@ -69,7 +69,7 @@
                     <div class="row">
                       <div class="col-sm-6 col-md-2">
                         <div class="form-group">
-                          <label class="form-label">Vehicle</label>
+                          <label class="form-label">Employee</label>
                         </div>
                       </div>
                       <div class="form-group mr-4">
@@ -101,7 +101,7 @@
                   <div class="row">
                       <div class="col-sm-6 col-md-2">
                         <div class="form-group">
-                          <label class="form-label">Vehicle Group</label>
+                          <label class="form-label">Employee Group</label>
                         </div>
                       </div>
                       <div class="form-group mr-4">
@@ -124,7 +124,7 @@
                       </div>
                   </div>
 
-                    <div class="row">
+                   <!-- <div class="row">
                       <div class="col-sm-6 col-md-2">
                         <div class="form-group">
                           <label class="form-label">Driver</label>
@@ -277,7 +277,7 @@
                           <label class="custom-control-label" for="lr_ie_add">Add New</label>
                         </div>
                       </div>
-                  </div>
+                  </div> -->
                   <div class="row">
                       <div class="col-sm-6 col-md-2">
                         <div class="form-group">
@@ -328,7 +328,7 @@
                         </div>
                       </div>
                   </div>
-                   <div class="row">
+                 <!--  <div class="row">
                       <div class="col-sm-6 col-md-2">
                         <div class="form-group">
                           <label class="form-label">Reports</label>
@@ -354,7 +354,7 @@
                         </div>
                       </div>
                   </div>
-                  </div>
+                  </div> -->
                 <div class="card-footer text-right">
                   <button type="submit" class="btn btn-primary"> <?php echo (isset($userdetails))?'Update User':'Add User' ?></button>
                 </div>

@@ -48,17 +48,18 @@ class Vehicle extends CI_Controller
 	public function addvehicle()
 	{
 		$data['v_group'] = $this->vehicle_model->get_vehiclegroup();
+		$data['driverlist'] = $this->vehicle_model->getall_driverlist();
 		$this->template->template_render('vehicle_add', $data);
 	}
 	public function insertvehicle()
 	{
 		$this->form_validation->set_rules('v_registration_no', 'Registration Number', 'required|trim|is_unique[vehicles.v_registration_no]');
 		$this->form_validation->set_message('is_unique', '%s is already exist');
-		$this->form_validation->set_rules('v_model', 'Model', 'required|trim');
-		$this->form_validation->set_rules('v_chassis_no', 'Chassis No', 'required|trim');
-		$this->form_validation->set_rules('v_engine_no', 'Engine No', 'required|trim');
-		$this->form_validation->set_rules('v_manufactured_by', 'Manufactured By', 'required|trim');
-		$this->form_validation->set_rules('v_type', 'Vehicle Type', 'required|trim');
+		// $this->form_validation->set_rules('v_model', 'Model', 'required|trim');
+	//	$this->form_validation->set_rules('v_chassis_no', 'Chassis No', 'required|trim');
+	//	$this->form_validation->set_rules('v_engine_no', 'Engine No', 'required|trim');
+	//	$this->form_validation->set_rules('v_manufactured_by', 'Manufactured By', 'required|trim');
+	//	$this->form_validation->set_rules('v_type', 'Vehicle Type', 'required|trim');
 		$this->form_validation->set_rules('v_color', 'Vehicle Color', 'required|trim');
 		$testxss = xssclean($_POST);
 		if ($this->form_validation->run() == TRUE && $testxss) {
@@ -102,6 +103,33 @@ class Vehicle extends CI_Controller
 			$comment =  NULL;
 			$postarray = array('v_id' => $vid, 'latitude' => $lat, 'longitude' => $lon, 'time' => date('Y-m-d h:i:s'), 'altitude' => $altitude, 'speed' => $speed, 'bearing' => $bearing, 'accuracy' => $accuracy, 'comment' => $comment, 'is_panic' => $_POST['panicinput'], 'latest' => $latest);
 			$this->api_model->add_postion($postarray);
+
+		$vgeofence = $this->geofence_model->getvechicle_geofence($vid);
+        if(!empty($vgeofence)) {
+            $points = array("$lat $lon");
+            foreach($vgeofence as $geofencedata) {
+                $lastgeo = explode(" ,",$geofencedata['geo_area']);
+                $polygon = $geofencedata['geo_area'].$lastgeo[0];
+                $polygondata = explode(' , ',$polygon);
+                foreach($polygondata as $polygoncln) {
+                    $geopolygondata[] = str_replace("," , ' ',$polygoncln); 
+                }
+                foreach($points as $key => $point) {
+                    $geocheck = pointInPolygon($point, $geopolygondata,false);
+                    if($geocheck=='outside' || $geocheck=='boundary' || $geocheck=='inside') {
+                        $wharray = array('ge_v_id' => $vid, 'ge_geo_id' => $geofencedata['geo_id'], 'ge_event' => $geocheck,
+                            'DATE(ge_timestamp)'=>date('Y-m-d'));
+                        $geofence_events = $this->db->select('*')->from('geofence_events')->where($wharray)->get()->result_array();
+                       
+                        if(count($geofence_events)==0) {
+                            $insertarray = array('ge_v_id'=>$vid,'ge_geo_id'=>$geofencedata['geo_id'],'ge_event'=>$geocheck,'ge_timestamp'=>
+                                       date('Y-m-d h:i:s'));
+                            $this->db->insert('geofence_events',$insertarray);
+                        } 
+                    }
+                }
+            }
+        }
 		}
 
 		$this->template->template_render('panic');
@@ -112,6 +140,7 @@ class Vehicle extends CI_Controller
 		$v_id = $this->uri->segment(3);
 		$data['v_group'] = $this->vehicle_model->get_vehiclegroup();
 		$data['vehicledetails'] = $this->vehicle_model->get_vehicledetails($v_id);
+		$data['driverlist'] = $this->vehicle_model->getall_driverlist();
 		$this->template->template_render('vehicle_add', $data);
 	}
 

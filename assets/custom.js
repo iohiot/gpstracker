@@ -83,15 +83,15 @@ $(document).ready(function() {
             },
             d_mobile: {
                 required: true,
-                number: true,
-                minlength: 9,
-                maxlength: 13,
+               // number: true,
+               // minlength: 9,
+               // maxlength: 13,
             },
             d_age: {
                 required: true,
-                number: true,
-                min: 18,
-                max: 70,
+                //number: true,
+                //min: 18,
+                //max: 70,
             },
             d_licenseno: {
                 required: true,

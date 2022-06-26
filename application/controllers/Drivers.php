@@ -25,21 +25,21 @@ class Drivers extends CI_Controller {
 	}
 	public function insertdriver()
 	{
-		$this->form_validation->set_rules('d_licenseno','License Number','required|trim|is_unique[vehicles.v_registration_no]');
-		$this->form_validation->set_message('is_unique', '%s is already exist');
+		//$this->form_validation->set_rules('d_licenseno','License Number','required|trim|is_unique[vehicles.v_registration_no]');
+		//$this->form_validation->set_message('is_unique', '%s is already exist');
 		$this->form_validation->set_rules('d_name','Name','required|trim');
 		$this->form_validation->set_rules('d_mobile','Mobile','required|trim');
         $this->form_validation->set_rules('d_address', 'Address', 'required|trim');
 		$this->form_validation->set_rules('d_age','Age','required|trim');
-		$this->form_validation->set_rules('d_licenseno','License Number','required|trim');
-		$this->form_validation->set_rules('d_license_expdate','License Exp Date','required|trim');
-		$this->form_validation->set_rules('d_total_exp','Total Experiance','required|trim');
-		$this->form_validation->set_rules('d_doj','Date of Joining','required|trim');
+		//$this->form_validation->set_rules('d_licenseno','License Number','required|trim');
+		//$this->form_validation->set_rules('d_license_expdate','License Exp Date','required|trim');
+		//$this->form_validation->set_rules('d_total_exp','Total Experiance','required|trim');
+		//$this->form_validation->set_rules('d_doj','Date of Joining','required|trim');
 		$testxss = xssclean($_POST);
 		if($this->form_validation->run()==TRUE && $testxss){
 			$response = $this->drivers_model->add_drivers($this->input->post());
 			if($response) {
-				$this->session->set_flashdata('successmessage', 'New driver added successfully..');
+				$this->session->set_flashdata('successmessage', 'New device added successfully..');
 			    redirect('drivers');
 			}
 
@@ -66,7 +66,7 @@ class Drivers extends CI_Controller {
 		if($testxss){
 			$response = $this->drivers_model->edit_driver($this->input->post());
 				if($response) {
-					$this->session->set_flashdata('successmessage', 'Driver updated successfully..');
+					$this->session->set_flashdata('successmessage', 'Device updated successfully..');
 				    redirect('drivers');
 				} else
 				{

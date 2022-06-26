@@ -16,7 +16,7 @@
                   <div class="col-md-5">
                      <div class="form-group">
                         <select id="t_vechicle" required="true" class="form-control selectized"  name="t_vechicle">
-                           <option value="">Select Vechicle</option>
+                           <option value="">Select Employee</option>
                            <?php  foreach ($vechiclelist as $key => $vechiclelists) { ?>
                            <option value="<?php echo output($vechiclelists['v_id']) ?>"><?php echo output($vechiclelists['v_name']).' - '. output($vechiclelists['v_registration_no']); ?></option>
                            <?php  } ?>
