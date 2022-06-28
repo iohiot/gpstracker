@@ -353,6 +353,8 @@ CREATE TABLE `positions` (
   `provider` varchar(100) DEFAULT NULL,
   `comment` varchar(255) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_panic` tinyint(1) NOT NULL DEFAULT 0,
+  `latest` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `index_user_id` (`v_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -564,7 +566,7 @@ CREATE TABLE `vehicles` (
   `v_manufactured_by` varchar(255) CHARACTER SET latin1 NOT NULL,
   `v_type` varchar(100) NOT NULL,
   `v_color` varchar(100) NOT NULL,
-  `v_mileageperlitre` varchar(100) NOT NULL,
+  `t_driver` varchar(100) NOT NULL,
   `v_is_active` int(10) NOT NULL DEFAULT '1',
   `v_group` int(11) NOT NULL,
   `v_reg_exp_date` varchar(100) NOT NULL,
