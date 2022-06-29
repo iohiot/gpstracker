@@ -1,4 +1,4 @@
-<aside class="main-sidebar elevation-1 sidebar-dark-warning">
+<aside class="main-sidebar sidebar-light">
    <?php $data = sitedata();  ?>
    <a href="<?= base_url(); ?>/dashboard" class="brand-link">
       <img src="<?= base_url() . 'assets/uploads/' . $data['s_logo'] ?>" class="brand-image img-circle elevation-1 frlogo">
@@ -54,33 +54,33 @@
             <?php if (userpermission('lr_drivers_list') || userpermission('lr_drivers_add')) { ?>
                <li class="nav-item has-treeview <?php echo ((activate_menu('drivers')) == 'active') ? 'menu-open' : '' ?>
                <?php echo ((activate_menu('adddrivers')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('editdriver')) == 'active') ? 'menu-open' : '' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('drivers'); ?> <?php echo activate_menu('adddrivers'); ?><?php echo activate_menu('editdriver'); ?>">
-                  <i class="nav-icon fas fa-tag"></i>
-                  <p>
-                     Device's
-                     <i class="right fas fa-angle-left"></i>
-                  </p>
-               </a>
-               <ul class="nav nav-treeview">
-                  <?php if (userpermission('lr_drivers_list')) { ?>
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>drivers" class="nav-link <?php echo activate_menu('drivers'); ?><?php echo activate_menu('editdriver'); ?>">
-                        <i class="nav-icon fas faa-list"></i>
-                        <p>Device List</p>
-                     </a>
-                  </li>
-                  <?php }
-                  if (userpermission('lr_drivers_add')) { ?>
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>drivers/adddrivers" class="nav-link <?php echo activate_menu('adddrivers'); ?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Add Device</p>
-                     </a>
-                  </li>
-                  <?php } ?>
-               </ul>
-            </li>
-            <!-- <?php } ?>
+                  <a href="#" class="nav-link <?php echo activate_menu('drivers'); ?> <?php echo activate_menu('adddrivers'); ?><?php echo activate_menu('editdriver'); ?>">
+                     <i class="nav-icon fas fa-tag"></i>
+                     <p>
+                        Device's
+                        <i class="right fas fa-angle-left"></i>
+                     </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                     <?php if (userpermission('lr_drivers_list')) { ?>
+                        <li class="nav-item">
+                           <a href="<?= base_url(); ?>drivers" class="nav-link <?php echo activate_menu('drivers'); ?><?php echo activate_menu('editdriver'); ?>">
+                              <i class="nav-icon fas faa-list"></i>
+                              <p>Device List</p>
+                           </a>
+                        </li>
+                     <?php }
+                     if (userpermission('lr_drivers_add')) { ?>
+                        <li class="nav-item">
+                           <a href="<?= base_url(); ?>drivers/adddrivers" class="nav-link <?php echo activate_menu('adddrivers'); ?>">
+                              <i class="nav-icon fas faa-plus"></i>
+                              <p>Add Device</p>
+                           </a>
+                        </li>
+                     <?php } ?>
+                  </ul>
+               </li>
+               <!-- <?php } ?>
             <?php if (userpermission('lr_trips_list') || userpermission('lr_trips_list_view')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('trips')) == 'active') ? 'menu-open' : '' ?>
                <?php echo ((activate_menu('addtrips')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('edittrip')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('details')) == 'active') ? 'menu-open' : '' ?>">
@@ -301,21 +301,21 @@
             <?php }
             if (userpermission('lr_reports')) { ?>
                <li class="nav-item has-treeview <?php echo ((activate_menu('incomeexpense')) == 'active') ? 'menu-open' : '' ?> <?php echo ((activate_menu('booking')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('fuels')) == 'active') ? 'menu-open' : '' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('booking'); ?><?php echo activate_menu('fuels'); ?><?php echo activate_menu('incomeexpense'); ?>">
-                  <i class="nav-icon fa fa-calculator" aria-hidden="true"></i>
-                  <p>
-                     Reports
-                     <i class="right fas fa-angle-left"></i>
-                  </p>
-               </a>
-               <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>reports/booking" class="nav-link <?php echo activate_menu('booking'); ?>">
-                        <i class="fas fa-cosg icon nav-icon"></i>
-                        <p>Details</p>
-                     </a>
-                  </li>
-               <!--   <li class="nav-item">
+                  <a href="#" class="nav-link <?php echo activate_menu('booking'); ?><?php echo activate_menu('fuels'); ?><?php echo activate_menu('incomeexpense'); ?>">
+                     <i class="nav-icon fa fa-calculator" aria-hidden="true"></i>
+                     <p>
+                        Reports
+                        <i class="right fas fa-angle-left"></i>
+                     </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                     <li class="nav-item">
+                        <a href="<?= base_url(); ?>reports/booking" class="nav-link <?php echo activate_menu('booking'); ?>">
+                           <i class="fas fa-cosg icon nav-icon"></i>
+                           <p>Details</p>
+                        </a>
+                     </li>
+                     <!--   <li class="nav-item">
                      <a href="<?= base_url(); ?>reports/incomeexpense" class="nav-link <?php echo activate_menu('incomeexpense'); ?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>Income & Expenses</p>
@@ -327,8 +327,8 @@
                         <p>Fuel</p>
                      </a>
                   </li>-->
-               </ul>
-            </li> 
+                  </ul>
+               </li>
             <?php }
             if (userpermission('lr_settings')) { ?>
                <!-- <li class="nav-item has-treeview <?php echo ((activate_menu('websitesetting')) == 'active') ? 'menu-open' : '' ?> <?php echo ((activate_menu('smtpconfig')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('email_template')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('edit_email_template')) == 'active') ? 'menu-open' : '' ?>">
