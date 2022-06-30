@@ -220,7 +220,9 @@ if ($this->uri->segment(2)) {
                                     <div class=""></div>
                                  </div>
                               </div>
-                              <canvas id="ie-chart" height="200" width="487" class="chartjs-render-monitor" style="display: block; width: 487px; height: 200px;"></canvas>
+                              <canvas id="ie-chart" height="200" width="487" class="chartjs-render-monitor" style="display: block; width: 487px; height: 200px;">
+
+                              </canvas>
                            </div>
 
                         </div>

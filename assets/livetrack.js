@@ -15,7 +15,7 @@ window.onload = function () {
   });
   infoWindow = new google.maps.InfoWindow();
   livetracking();
-  window.setInterval(livetracking, 3000);
+  window.setInterval(livetracking, 7000);
 };
 
 function livetracking() {
@@ -71,19 +71,23 @@ function livetracking() {
             parseFloat(markers[i].longitude)
           );
           var html =
-            "<div class=' '><b>" +
+            "<div class='tracking-card'><b>" +
             "Name: </b>" +
             markers[i].v_name +
             "<br>" +
+            "<b>Latitude: </b>" +
+            parseFloat(markers[i].latitude) + "<br>" +
+            "<b>Longitude: </b>" +
+            parseFloat(markers[i].longitude) + "<br>" +
             "<b>Updated On: </b>" +
             lastupdate +
             "<br>" +
             "<br>" +
-            "<a href='https://www.google.com/maps/search/?api=1&query=" +
+            "<button class='btn btn-danger btn-sm'><a " + " " + "target='_blank'" + "style='color:white;'" + " href='https://www.google.com/maps/search/?api=1&query=" +
             parseFloat(markers[i].latitude) +
             "," +
             parseFloat(markers[i].longitude) +
-            "'>Direction >>>> </a>";
+            "'>Direction >> </a></button>";
           ("<br></div>");
           var marker = new google.maps.Marker({
             map: map,
