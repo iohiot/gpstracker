@@ -45,7 +45,7 @@ function livetracking() {
           baseUrl = "http://localhost/gpstracker/assets/marker/";
           v_type = {
                     path: fontawesome.markers.USER,
-                    scale: 0.4,
+                    scale: 0.7,
                     strokeWeight: 0.2,
                     strokeColor: 'black',
                     strokeOpacity: 2,
@@ -56,13 +56,13 @@ function livetracking() {
           {
             v_type = {
                       url: baseUrl + "warning.gif",
-                      scaledSize: new google.maps.Size(30, 30)
+                      scaledSize: new google.maps.Size(50, 50)
                     };
           } else if (markers[i].is_panic == 2)
           {
             v_type = {
                       url: baseUrl + "mandown.gif",
-                      scaledSize: new google.maps.Size(30, 30)
+                      scaledSize: new google.maps.Size(50, 50)
                     };
           }
 

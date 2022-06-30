@@ -57,7 +57,7 @@ if ($seg == 'booking' || $seg == 'incomeexpense' || $seg == 'fuels') {
    <script src="<?= base_url(); ?>assets/plugins/datatables/vfs_fonts.js"></script>
    <script src="<?= base_url(); ?>assets/plugins/datatables/buttons.html5.min.js"></script>
 <?php }
-if ($seg == 'addgeofence' || $seg == 'addtrips' || $seg == 'geofence' || $seg == 'livestatus' || $seg == 'tracking') {
+if ($seg == 'dashboard' || $seg == 'addgeofence' || $seg == 'addtrips' || $seg == 'geofence' || $seg == 'livestatus' || $seg == 'tracking') {
    $data = sitedata();
 ?>
    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
