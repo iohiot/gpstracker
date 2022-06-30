@@ -1,8 +1,7 @@
 <aside class="main-sidebar sidebar-light">
    <?php $data = sitedata();  ?>
-   <a href="<?= base_url(); ?>/dashboard" class="brand-link">
-      <img src="<?= base_url() . 'assets/uploads/' . $data['s_logo'] ?>" class="brand-image img-circle elevation-1 frlogo">
-      <span class="brand-text font-weight-light"><?php echo ucfirst(output($this->session->userdata['session_data']['name'])); ?></span>
+   <a href="<?= base_url(); ?>/dashboard" class="brand-link" style="background: #FF006B;">
+      <span style="padding-left: 16px; font-weight: bold; color: white;" class="brand-text font-weight-light"><?php echo ucfirst(output($this->session->userdata['session_data']['name'])); ?></span>
    </a>
    <div class="sidebar">
       <nav class="mt-2">
@@ -393,7 +392,10 @@
                </a>
             </li>
          </ul>
+
       </nav>
+      <img src="<?= base_url(); ?>/assets/uploads/brand-logo.png" class="brand-image" style="width: 60%; padding: 6px 8px; margin-left: 30px; margin-top: 350px;">
    </div>
 </aside>
+
 <div class="content-wrapper pb-2 mb-0">
