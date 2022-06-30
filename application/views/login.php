@@ -25,7 +25,7 @@ if ($this->config->item('company_name') !== '') {
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition login-page" style="background-image: url(<?php echo base_url(); ?>./assets/uploads/login-bg-3.png);">
+<body class="hold-transition login-page" style="background-image: url(<?php echo base_url(); ?>./assets/uploads/login-bg.png);">
   <div class="login-box">
 
 

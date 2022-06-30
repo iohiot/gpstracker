@@ -73,10 +73,12 @@ if ($this->uri->segment(2)) {
                      </defs>
                   </svg>
                </span>
-               <div class="info-box-content">
-                  <span class="info-box-text"><strong>Total Devices </strong></span>
-                  <span class="info-box-number" style="font-size: 1.5rem;"><?= ($dashboard['tot_drivers'] != '') ? $dashboard['tot_drivers'] : '0' ?> </span>
-               </div>
+               <a href="<?= base_url(); ?>/drivers">
+                  <div class="info-box-content">
+                     <span class="info-box-text"><strong>Total Devices </strong></span>
+                     <span class="info-box-number" style="font-size: 1.5rem;"><?= ($dashboard['tot_drivers'] != '') ? $dashboard['tot_drivers'] : '0' ?> </span>
+                  </div>
+               </a>
                <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
@@ -220,7 +222,7 @@ if ($this->uri->segment(2)) {
                               </div>
                               <canvas id="ie-chart" height="200" width="487" class="chartjs-render-monitor" style="display: block; width: 487px; height: 200px;"></canvas>
                            </div>
-                         
+
                         </div>
                      </div>
                   </div>
