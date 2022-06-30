@@ -35,8 +35,8 @@
 */
 
 // The following values will probably need to be changed.
-$db['default']['username'] = "root";
-$db['default']['password'] = "";
+$db['default']['username'] = "admin";
+$db['default']['password'] = "admin";
 $db['default']['database'] = "personal_tracker";
 
 // The following values can probably stay the same.
