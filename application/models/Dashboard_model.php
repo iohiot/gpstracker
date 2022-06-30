@@ -7,8 +7,8 @@ class Dashboard_model extends CI_Model
     {
         $data['tot_vehicles']      = $this->db->select('v_id')->from('vehicles')->get()->num_rows();
         $data['tot_drivers']       = $this->db->select('d_id')->from('drivers')->get()->num_rows();
-        $data['tot_customers']     = $this->db->select('c_id')->from('customers')->get()->num_rows();
-        $data['tot_today_trips']   = $this->db->select('t_id')->from('trips')->where('t_start_date', date('Y-m-d'))->get()->num_rows();
+        $data['tot_accident']     = $this->db->select('id')->from('positions')->where('is_panic <>', '0')->get()->num_rows();
+        $data['tot_today_trips']   = $this->db->select('id')->from('positions')->where('created_date', date('Y-m-d'))->get()->num_rows();
         $data['tot_today_income']  = $this->db->select_sum('ie_amount')->from('incomeexpense')->where('ie_date', date('Y-m-d'))->where('ie_type', 'income')->get()->row()->ie_amount;
         $data['tot_today_expense'] = $this->db->select_sum('ie_amount')->from('incomeexpense')->where('ie_date', date('Y-m-d'))->where('ie_type', 'expense')->get()->row()->ie_amount;
         return $data;
