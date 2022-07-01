@@ -394,11 +394,8 @@
          </ul>
 
       </nav>
-<<<<<<< HEAD
+
       <img src="<?= base_url(); ?>/assets/uploads/brand-logo.png" class="brand-image" style="width: 60%; padding: 6px 8px; margin-left: 30px; margin-top: 270px;">
-=======
-      <img src="<?= base_url(); ?>/assets/uploads/brand-logo.png" class="brand-image" style="width: 60%; padding: 6px 8px; margin-left: 30px; margin-top: 200px;">
->>>>>>> ed9fd492f1a3244463d9b57a77b2d243aa79f07d
    </div>
 </aside>
 
