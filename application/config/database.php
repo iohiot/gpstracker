@@ -35,12 +35,12 @@
 */
 
 // The following values will probably need to be changed.
-$db['default']['username'] = "admin";
-$db['default']['password'] = "admin";
+$db['default']['username'] = "root";
+$db['default']['password'] = "Iot_ioh123";
 $db['default']['database'] = "personal_tracker";
 
 // The following values can probably stay the same.
-$db['default']['hostname'] = "localhost";
+$db['default']['hostname'] = "34.101.49.211";
 $db['default']['dbdriver'] = "mysqli"; //Updated to latest driver.
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;

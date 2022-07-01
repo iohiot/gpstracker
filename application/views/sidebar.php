@@ -297,9 +297,9 @@
                      <?php } ?>
                   </ul>
                </li>
-            <?php }
+             <?php }
             if (userpermission('lr_reports')) { ?>
-               <li class="nav-item has-treeview <?php echo ((activate_menu('incomeexpense')) == 'active') ? 'menu-open' : '' ?> <?php echo ((activate_menu('booking')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('fuels')) == 'active') ? 'menu-open' : '' ?>">
+               <!--  <li class="nav-item has-treeview <?php echo ((activate_menu('incomeexpense')) == 'active') ? 'menu-open' : '' ?> <?php echo ((activate_menu('booking')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('fuels')) == 'active') ? 'menu-open' : '' ?>">
                   <a href="#" class="nav-link <?php echo activate_menu('booking'); ?><?php echo activate_menu('fuels'); ?><?php echo activate_menu('incomeexpense'); ?>">
                      <i class="nav-icon fa fa-calculator" aria-hidden="true"></i>
                      <p>
@@ -314,7 +314,7 @@
                            <p>Details</p>
                         </a>
                      </li>
-                     <!--   <li class="nav-item">
+                      <li class="nav-item">
                      <a href="<?= base_url(); ?>reports/incomeexpense" class="nav-link <?php echo activate_menu('incomeexpense'); ?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>Income & Expenses</p>
@@ -325,9 +325,9 @@
                         <i class="nav-icon fas faa-plus"></i>
                         <p>Fuel</p>
                      </a>
-                  </li>-->
+                  </li>
                   </ul>
-               </li>
+               </li> -->
             <?php }
             if (userpermission('lr_settings')) { ?>
                <!-- <li class="nav-item has-treeview <?php echo ((activate_menu('websitesetting')) == 'active') ? 'menu-open' : '' ?> <?php echo ((activate_menu('smtpconfig')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('email_template')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('edit_email_template')) == 'active') ? 'menu-open' : '' ?>">

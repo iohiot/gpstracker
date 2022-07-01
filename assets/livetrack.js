@@ -42,7 +42,7 @@ function livetracking() {
         for (i = 0; i < markers.length; i++) {
           var lastupdate = markers[i].time;
 
-          baseUrl = "http://tracker.iotioh.com//assets/marker/";
+          baseUrl = "http://tracker.iotioh.com/assets/marker/";
           v_type = {
                     path: fontawesome.markers.USER,
                     scale: 0.7,

@@ -239,7 +239,7 @@ if ($this->uri->segment(2)) {
                </div>
             <?php }
             if (userpermission('lr_vech_list')) { ?>
-               <div class="col-sm-6 col-lg-6 ">
+               <!--<div class="col-sm-6 col-lg-6 ">
                   <div class="card">
                      <div class="card-header">
                         <h2 class="card-title">Employee Running</h2>
@@ -266,7 +266,7 @@ if ($this->uri->segment(2)) {
                      </table>
                   </div>
                </div>
-
+                        -->
             <?php }
             if (userpermission('lr_geofence_list')) { ?>
                <div class="col-md-6">
