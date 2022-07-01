@@ -346,7 +346,7 @@ if ($this->uri->segment(2)) {
                },
                {
                   type: 'line',
-                  data: [0, 2, 1],
+                  data: [0, 2, 1, 0, 0, 0],
                   backgroundColor: 'tansparent',
                   borderColor: '#dc3545',
                   pointBorderColor: '#dc3545',
