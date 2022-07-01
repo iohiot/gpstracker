@@ -3,7 +3,7 @@
    <a href="<?= base_url(); ?>/dashboard" class="brand-link" style="background: #FF006B;">
       <span style="padding-left: 16px; font-weight: bold; color: white;" class="brand-text font-weight-light"><?php echo ucfirst(output($this->session->userdata['session_data']['name'])); ?></span>
    </a>
-   <div class="sidebar">
+   <div class="sidebar" style="background: white;">
       <nav class="mt-2">
          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
@@ -394,7 +394,11 @@
          </ul>
 
       </nav>
+<<<<<<< HEAD
       <img src="<?= base_url(); ?>/assets/uploads/brand-logo.png" class="brand-image" style="width: 60%; padding: 6px 8px; margin-left: 30px; margin-top: 270px;">
+=======
+      <img src="<?= base_url(); ?>/assets/uploads/brand-logo.png" class="brand-image" style="width: 60%; padding: 6px 8px; margin-left: 30px; margin-top: 200px;">
+>>>>>>> ed9fd492f1a3244463d9b57a77b2d243aa79f07d
    </div>
 </aside>
 
