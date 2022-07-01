@@ -70,12 +70,12 @@
                         </li>
                      <?php }
                      if (userpermission('lr_drivers_add')) { ?>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                            <a href="<?= base_url(); ?>drivers/adddrivers" class="nav-link <?php echo activate_menu('adddrivers'); ?>">
                               <i class="nav-icon fas faa-plus"></i>
                               <p>Add Device</p>
                            </a>
-                        </li>
+                        </li> -->
                      <?php } ?>
                   </ul>
                </li>
@@ -297,7 +297,7 @@
                      <?php } ?>
                   </ul>
                </li>
-             <?php }
+            <?php }
             if (userpermission('lr_reports')) { ?>
                <!--  <li class="nav-item has-treeview <?php echo ((activate_menu('incomeexpense')) == 'active') ? 'menu-open' : '' ?> <?php echo ((activate_menu('booking')) == 'active') ? 'menu-open' : '' ?><?php echo ((activate_menu('fuels')) == 'active') ? 'menu-open' : '' ?>">
                   <a href="#" class="nav-link <?php echo activate_menu('booking'); ?><?php echo activate_menu('fuels'); ?><?php echo activate_menu('incomeexpense'); ?>">
