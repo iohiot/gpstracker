@@ -200,7 +200,7 @@ if ($this->uri->segment(2)) {
                      <div class="card-header">
                         <h2 class="card-title">Total Trip by Status</h2>
                      </div>
-                     <div class="card-header border-transparent">
+                     <div class="card-header border-transparent" style="height: 400px;">
                         <div class="card-body">
                            <div class="d-flex">
                               <p class="d-flex flex-column">
@@ -223,6 +223,14 @@ if ($this->uri->segment(2)) {
                               <canvas id="ie-chart" height="200" width="487" class="chartjs-render-monitor" style="display: block; width: 487px; height: 200px;">
 
                               </canvas>
+                           </div>
+                           <div class="d-flex flex-row justify-content-end">
+                              <span class="mr-2">
+                                 <i class="fas fa-square text-success"></i> Panic Button
+                              </span>
+                              <span>
+                                 <i class="fas fa-square text-danger"></i> Man Down
+                              </span>
                            </div>
 
                         </div>
@@ -314,6 +322,7 @@ if ($this->uri->segment(2)) {
 <!-- /.content-wrapper -->
 <?php if (userpermission('lr_ie_list')) { ?>
    <script>
+      // $income = array(1, 1, 2);
       var ticksStyle = {
          fontColor: '#495057',
          fontStyle: 'bold'
@@ -326,7 +335,7 @@ if ($this->uri->segment(2)) {
             labels: <?= "['" . implode("', '", array_keys($iechart)) . "']" ?>,
             datasets: [{
                   type: 'line',
-                  data: <?= "['" . implode("', '", array_column($iechart, 'income')) . "']" ?>,
+                  data: [1, 2, 3, 1, 1, 2],
                   backgroundColor: 'transparent',
                   borderColor: '#28a745',
                   pointBorderColor: '#28a745',
@@ -337,7 +346,7 @@ if ($this->uri->segment(2)) {
                },
                {
                   type: 'line',
-                  data: <?= "['" . implode("', '", array_column($iechart, 'expense')) . "']" ?>,
+                  data: [0, 2, 1],
                   backgroundColor: 'tansparent',
                   borderColor: '#dc3545',
                   pointBorderColor: '#dc3545',
@@ -372,7 +381,7 @@ if ($this->uri->segment(2)) {
                   },
                   ticks: $.extend({
                      beginAtZero: true,
-                     suggestedMax: 200
+                     suggestedMax: 8
                   }, ticksStyle)
                }],
                xAxes: [{
